@@ -1,0 +1,19 @@
+{
+    "login": {
+        "title": "Sign In",
+        "form": {
+            "password": "Password",
+            "password.placeholder": "Your password",
+            "rememberme": "Automatic Login",
+            "button": "Sign In"
+        },
+        "messages": {
+            "error": {
+                "authentication": "<strong>Failed to Sign In</strong> Please check your credentials and try again."
+            }
+        },
+        "password" : {
+            "forgot": "Did you forget your password?"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+<div>
+    <div class="row">
+		<div class="col-sm-3">
+			<!-- left -->
+			<h3>
+				<i class="glyphicon glyphicon-briefcase"></i> Toolbox
+			</h3>
+			<hr>
+
+			<ul class="nav nav-stacked">
+				<li><a ui-sref="createDatabase"><i
+						class="glyphicon glyphicon-flash" ></i> Create Database</a></li>
+				<li><a ui-sref="createDatabase"><i
+						class="glyphicon glyphicon-link"></i> Edit Schema</a></li>
+				<li><a href="javascript:;"><i
+						class="glyphicon glyphicon-list-alt"></i> Import Data</a></li>
+				<li><a href="javascript:;"><i
+						class="glyphicon glyphicon-book"></i> REST API</a></li>
+				<li><a href="javascript:;"><i
+						class="glyphicon glyphicon-briefcase"></i> Permissions</a></li>
+				<li><a href="javascript:;"><i
+						class="glyphicon glyphicon-time"></i> Deploy App</a></li>
+				<li><a href="javascript:;"><i
+						class="glyphicon glyphicon-plus"></i> Download</a></li>
+			</ul>
+
+			<hr>
+
+		</div>
+		<!-- /span-3 -->
+        <div class="col-md-9">
+            <h1 translate="createDatabase.title">Create a new Neo4j database</h1>
+
+            <div class="alert alert-success" ng-show="success" translate="createDatabase.messages.success">
+                <strong>Database created!</strong>.
+            </div>
+
+            <div class="alert alert-danger" ng-show="error" translate="createDatabase.messages.error.fail">
+                <strong>Create database failed!</strong> Please check your input and try again.
+            </div>
+
+            <div class="alert alert-danger" ng-show="errorUserExists" translate="createDatabase.messages.error.userexists">
+                <strong>Database name already exists!</strong> Please choose another one.
+            </div>
+
+            <form ng-show="!success" name="form" role="form" novalidate ng-submit="create()" show-validation>
+
+				<div class="form-group">
+                    <input type="text" class="form-control" name="databaseName" placeholder="{{'global.database.databaseName.placeholder' | translate}}"
+                           ng-model="createDatabase.databaseName" ng-minlength=1 ng-maxlength=100 ng-pattern="/^[a-zA-Z0-9]*$/" required>
+                    <div ng-show="form.databaseName.$dirty && form.databaseName.$invalid">
+                        <p class="help-block"
+                               ng-show="form.databaseName.$error.required" translate="createDatabase.messages.validate.databaseName.required">
+                            Database name is required.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.databaseName.$error.minlength" translate="createDatabase.messages.validate.databaseName.minlength">
+                            Database name is required to be at least 1 character
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.databaseName.$error.maxlength" translate="createDatabase.messages.validate.databaseName.maxlength">
+                            Database name cannot be longer than 100 characters
+                        </p>
+                        
+                    </div>
+                </div>
+                
+                
+
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="createDatabase.form.button">Create Database</button>
+            </form>
+        </div>
+    </div>
+</div>

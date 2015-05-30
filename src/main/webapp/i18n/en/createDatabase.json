@@ -1,0 +1,22 @@
+{
+    "createDatabase": {
+        "title": "Create a new Database",
+        "form": {
+            "button": "Create"
+        },
+        "messages": {
+            "validate": {
+                "companyName": {
+                    "required": "Database name is required.",
+                    "pattern": "Database name can only contain letters and digits"
+                }
+                
+            },
+            "success": "<strong>Database created!</strong>.",
+            "error": {
+                "fail": "<strong>Database creation failed!</strong>.",
+                "userexists": "<strong>Database name already registered!</strong> Please choose another one."
+            }
+        }
+    }
+}
